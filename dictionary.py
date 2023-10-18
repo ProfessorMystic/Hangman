@@ -33,3 +33,71 @@ def getword():
                 "yesterday", "youthful",
                 "zealous", "zebra"]
     return random.choice(wordlist).upper()  # capitalize word for less confusion in game
+
+
+# prints stage of game based on attempts failed
+def tries(t):
+    if t == 0:
+        print(" _______\n"
+              " |     |\n"
+              " |\n"
+              " |\n"
+              " |\n"
+              " |\n"
+              "/ \\")
+    elif t == 1:
+        print(" _______\n"
+              " |     |\n"
+              " |     O\n"
+              " |\n"
+              " |\n"
+              " |\n"
+              "/ \\")
+    elif t == 2:
+        print(" _______\n"
+              " |     |\n"
+              " |     O\n"
+              " |     |\n"
+              " |\n"
+              " |\n"
+              "/ \\")
+    elif t == 3:
+        print(" _______\n"
+              " |     |\n"
+              " |     O\n"
+              " |    \\|\n"
+              " |\n"
+              " |\n"
+              "/ \\")
+    elif t == 4:
+        print(" _______\n"
+              " |     |\n"
+              " |     O\n"
+              " |    \\|/\n"
+              " |\n"
+              " |\n"
+              "/ \\")
+    elif t == 5:
+        print(" _______\n"
+              " |     |\n"
+              " |     O\n"
+              " |    \\|/\n"
+              " |     |\n"
+              " |\n"
+              "/ \\")
+    elif t == 6:
+        print(" _______\n"
+              " |     |\n"
+              " |     O\n"
+              " |    \\|/\n"
+              " |     |\n"
+              " |    /\n"
+              "/ \\")
+    else:
+        print(" _______\n"
+              " |     |\n"
+              " |     O\n"
+              " |    \\|/\n"
+              " |     |\n"
+              " |    / \\\n"
+              "/ \\")

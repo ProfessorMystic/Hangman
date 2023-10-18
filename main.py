@@ -1,72 +1,4 @@
-import dictionary  # imports dictionary file
-
-
-# prints stage of game based on attempts failed
-def tries(t):
-    if t == 0:
-        print(" _______\n"
-              " |     |\n"
-              " |\n"
-              " |\n"
-              " |\n"
-              " |\n"
-              "/ \\")
-    elif t == 1:
-        print(" _______\n"
-              " |     |\n"
-              " |     O\n"
-              " |\n"
-              " |\n"
-              " |\n"
-              "/ \\")
-    elif t == 2:
-        print(" _______\n"
-              " |     |\n"
-              " |     O\n"
-              " |     |\n"
-              " |\n"
-              " |\n"
-              "/ \\")
-    elif t == 3:
-        print(" _______\n"
-              " |     |\n"
-              " |     O\n"
-              " |    \\|\n"
-              " |\n"
-              " |\n"
-              "/ \\")
-    elif t == 4:
-        print(" _______\n"
-              " |     |\n"
-              " |     O\n"
-              " |    \\|/\n"
-              " |\n"
-              " |\n"
-              "/ \\")
-    elif t == 5:
-        print(" _______\n"
-              " |     |\n"
-              " |     O\n"
-              " |    \\|/\n"
-              " |     |\n"
-              " |\n"
-              "/ \\")
-    elif t == 6:
-        print(" _______\n"
-              " |     |\n"
-              " |     O\n"
-              " |    \\|/\n"
-              " |     |\n"
-              " |    /\n"
-              "/ \\")
-    else:
-        print(" _______\n"
-              " |     |\n"
-              " |     O\n"
-              " |    \\|/\n"
-              " |     |\n"
-              " |    / \\\n"
-              "/ \\")
+import dictionary  # imports dictionary file containing word list and hangman imagery
 
 
 # function for playing again
@@ -90,7 +22,7 @@ def game():
         line.append("_")
     print("\nWelcome to Hangman!\n")
     while attempt < 7:
-        tries(attempt)  # prints pole and body
+        dictionary.tries(attempt)  # prints pole and body
         print("\n" + ' '.join(line))  # prints line
         ans = input("\nGuess a letter or word, and try to fill in the blanks: ").upper()  # user input is capitalized
         if ans == "":
@@ -104,17 +36,17 @@ def game():
                     line[idx] = ans
         elif ans == word:  # user guesses answer correctly; wins game
             line = word
-            tries(attempt)
+            dictionary.tries(attempt)
             print("\n" + ' '.join(line) + "\nCongratulations, you guessed the word! The word was: " + word)
             restart()
         else:  # user guesses answer incorrectly; attempt += 1
             print("Oops, " + ans + " is not the word. Don't answer too hastily!")
             attempt += 1
         if str(line).find("_") == -1:  # checks to see if any underscore is remaining; if not then user wins
-            tries(attempt)
+            dictionary.tries(attempt)
             print("\n" + ' '.join(line) + "\nCongratulations, you guessed the word! The word was: " + word)
             restart()
-    tries(attempt)  # implies that full body has been constructed and hung; game over
+    dictionary.tries(attempt)  # implies that full body has been constructed and hung; game over
     print("\n" + ' '.join(line) + "\n\nYou've been hung! The word was: " + word)
     restart()  # calls restart function to ask if user wants to play again
 
